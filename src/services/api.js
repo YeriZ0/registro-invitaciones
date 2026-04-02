@@ -1,5 +1,12 @@
 const URL_BASE = import.meta.env.VITE_API_URL
 
+// Obtiene la informacion del invitado por su nombre
+export const leerInvitadoUnico = async (invitado) => {
+    const query = `?ruta=invitadoUnico&invitado=${invitado}`
+    const res = await fetch(`${URL_BASE}${query}`)
+    return await res.json()
+}
+
 // Obtiene la lista de invitados desde la ruta correspondiente
 export const leerInvitados = async () => {
     const res = await fetch(`${URL_BASE}?ruta=invitados`)

@@ -10,19 +10,24 @@ function App() {
   const cargarDatos = async () => {
     try {
       const invitados = await leerInvitados()
-      setDatos(invitados)
+      if (Array.isArray(invitados)) {
+        setDatos(invitados)
+      } else {
+        console.error("La API no devolvio un arreglo: ", invitados)
+      }
+      
     } catch (error) {
-      console.error("Erroral obtener los datos: ", error)
+      console.error("Error al obtener los datos: ", error)
     }
   }
 
   useEffect(() => {
-    cargarDatos()
+    cargarDatos
   }, [])
 
   return (
     <>
-      <TablaInvitados datos={datos} recargar={cargarDatos}/>
+      <TablaInvitados datos={datos} recargar={cargarDatos} />
     </>
   )
 }

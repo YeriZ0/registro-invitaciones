@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { actualizarDatos, eliminarRegistro } from '../services/api'
+import { generarSlug } from '../utils/text'
 
 export const TablaInvitados = ({ datos, recargar }) => {
     const [editando, setEditando] = useState(null)
@@ -13,6 +14,15 @@ export const TablaInvitados = ({ datos, recargar }) => {
     const borrar = async (id) => {
         await eliminarRegistro(id)
         recargar() // Actualiza la lista tras borrar
+    }
+
+    const copiarEnlace = (nombre) => {
+        const slug = generarSlug(nombre)
+        const urlCompleta = `${window.location.origin}/invitacion/${slug}`
+
+        navigator.clipboard.writeText(urlCompleta)
+            .then(() => alert(`Enlace de ${nombre} copiado`))
+            .catch(err => console.error("Error al copiar el texto: ", err))
     }
 
     // Verifica si hay datos antes
@@ -51,15 +61,24 @@ export const TablaInvitados = ({ datos, recargar }) => {
                                 : inv.estado}
                         </td>
                         <td>
-                            {editando === inv.id ? 
-                                <button onClick={() => guardarCambios(
-                                    inv.id, 
-                                    document.getElementById(`res-${inv.id}`).value,
-                                    document.getElementById(`est-${inv.id}`).value
-                                )}>Guardar</button>
-                                : <button onClick={() => setEditando(inv.id)}>Editar</button>
-                            }
-                            <button onClick={() => borrar(inv.id)}>Eliminar</button>
+                            <div className="grupo-botones">
+                                {editando === inv.id ? 
+                                    <button onClick={() => guardarCambios(
+                                        inv.id, 
+                                        document.getElementById(`res-${inv.id}`).value,
+                                        document.getElementById(`est-${inv.id}`).value
+                                    )}>Guardar</button>
+                                    : <button onClick={() => setEditando(inv.id)}>Editar</button>
+                                }
+                                <button onClick={() => borrar(inv.id)}>Eliminar</button>
+                                {/* Boton para generar y copiar el enlace personalizado */}
+                                <button 
+                                    onClick={() => copiarEnlace(inv.nombre)}
+                                    className="btn-copiar"
+                                >
+                                    Copiar Link
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 ))}
