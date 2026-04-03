@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { TablaInvitados } from './components/TablaInvitados'
 import { leerInvitados } from '../src/services/api'
-import './App.css'
 
 function App() {
 
@@ -22,7 +21,7 @@ function App() {
   }
 
   useEffect(() => {
-    cargarDatos
+    cargarDatos()
   }, [])
 
   return (

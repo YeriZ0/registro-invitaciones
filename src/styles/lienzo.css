@@ -1,0 +1,19 @@
+.lienzo {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Ancho de una carta real */
+  margin: 0 auto; /* Centrar en la pagina */
+  box-sizing: border-box;
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contenido-lienzo {
+  padding: 4rem 1rem;
+  min-height: 400px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
