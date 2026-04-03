@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { leerInvitadoUnico, actualizarDatos } from '../services/api'
 
+import { Lienzo } from './Lienzo'
+import { DecoracionHoja } from './DecoracionHoja'
+
 export const Invitacion = () => {
     const [datos, setDatos] = useState(null)
     const [cargando, setCargando] = useState(true)
@@ -32,16 +35,23 @@ export const Invitacion = () => {
     if (!datos || !datos.encontrado) return <p>Invitacion no encontrada</p>
 
     return (
-        <div className="card-invitacion">
-        <h1>¡Hola {datos.nombre}!</h1>
-        <p>Has sido invitado a nuestra celebracion</p>
-        <p>Lugares reservados: <strong>{datos.reserva}</strong></p>
-        <p>Tu estado actual: {datos.estado}</p>
-        
-        <div className="acciones">
-            <button onClick={() => confirmar('confirmado')}>Confirmar Asistencia</button>
-            <button onClick={() => confirmar('cancelado')}>No podre asistir</button>
-        </div>
-        </div>
+        <>
+        <Lienzo color={'var(--carta-color-1)'}>
+            <DecoracionHoja 
+                fila={1} columna={2} 
+                size="300px" bottom="-70px" left="-120px" rotation={5} 
+            />
+
+            <h1>¡Hola {datos.nombre}!</h1>
+            <p>Has sido invitado a nuestra celebracion</p>
+            <p>Lugares reservados: <strong>{datos.reserva}</strong></p>
+            <p>Tu estado actual: {datos.estado}</p>
+            
+            <div className="acciones">
+                <button onClick={() => confirmar('confirmado')}>Confirmar Asistencia</button>
+                <button onClick={() => confirmar('cancelado')}>No podre asistir</button>
+            </div>
+        </Lienzo>
+        </>
     )
 }
