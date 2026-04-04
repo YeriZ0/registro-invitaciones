@@ -19,21 +19,35 @@
   --ff-body: 'Arial', sans-serif;
 
   /* Tamaños Fluidos con clamp(mínimo, preferido, máximo) */
-  --fs-xl: clamp(3rem, 10vw + 1rem, 6rem);   /* Títulos gigantes */
-  --fs-lg: clamp(1.5rem, 4vw + 1rem, 2.5rem); /* Nombres/Frases */
+  --fs-xl: clamp(3rem, 10vw + 1rem, 4rem);   /* Títulos gigantes */
+  --fs-lg: clamp(2rem, 3vw + 1rem, 2.75rem); /* Nombres/Frases */
   --fs-md: clamp(1rem, 1.5vw + 0.5rem, 1.25rem); /* Información/Cuerpo */
   
   /* Espaciado entre letras */
-  --ls-elegant: 0.1em;
+  --ls-elegant: 0.2em;
 }
 
 /* Clase especial para frases con GreatVibes */
-.txt-romantic {
+.txt-romantic-lg {
   font-family: var(--ff-accent);
   font-size: var(--fs-lg);
+  color: var(--featured);
+  margin: 1rem 0;
+}
+
+.txt-romantic-xl {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-xl);
   color: var(--accent);
   margin: 1rem 0;
 }
+
+.txt-romantic {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-lg);
+  margin: 1rem 0;
+}
+
 
 /* Para los nombres de los novios o títulos de secciones */
 .txt-heading {
@@ -41,6 +55,7 @@
   font-size: var(--fs-xl);
   text-transform: uppercase;
   letter-spacing: var(--ls-elegant);
+  text-align: center;
 }
 
 /* Para la dirección, fecha y detalles del invitado */

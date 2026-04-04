@@ -1,0 +1,127 @@
+.reproductor-estilizado {
+    background: var(--bg);
+    gap: 5px;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    max-width: 450px;
+    margin: 2rem auto;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controles-audio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.reproductor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.track-container,
+.time-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    width: 100%;
+}
+
+.time-container {
+    justify-content: space-between;
+}
+
+.btn-circular {
+    background-color: var(--accent);
+    color: #ffffff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0; 
+    flex-grow: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 30px;
+}
+
+.btn-circular svg {
+    display: block;
+    flex-shrink: 0;
+}
+
+.btn-circular:hover {
+    transform: scale(1.1);
+}
+
+.volumen-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: rotate(-90);
+}
+
+/* Personalizacion de barras de rango */
+input[type="range"] {
+    appearance: none;
+    background: var(--accent-light);
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border: 2px solid #fff;
+    border-radius: 10%;
+    box-shadow: 0 2px 15px var(--accent);
+    cursor: pointer;
+}
+
+.titulo-cancion {
+    font-family: var(--ff-heading);
+    font-size: 14px;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.timer-label {
+    font-size: 15px;
+    color: var(--text);
+    opacity: 0.9;
+    /* Mantiene el tamaño entre números constante */
+    font-variant-numeric: tabular-nums;
+    min-width: 50px; 
+    text-align: center;
+}
+
+/* Estilo para el circulo del slider en navegadores Chrome/Safari */
+.slider-progreso::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #3498db;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

@@ -5,7 +5,8 @@ export const DecoracionHoja = ({
   columna = 1, 
   size = '100px', 
   top, left, right, bottom, 
-  rotation = 0 
+  rotation = 0,
+  delay = 0
 }) => {
   // Clase dinámica basada en fila y columna
   const clasePosicion = `h-${fila}-${columna}`
@@ -18,7 +19,8 @@ export const DecoracionHoja = ({
     left,
     right,
     bottom,
-    transform: `rotate(${rotation}deg)`
+    '--rot': `${rotation}deg`,
+    animationDelay: `${delay}s`
   }
 
   return (
