@@ -1,5 +1,5 @@
 .reproductor-estilizado {
-    background: var(--bg);
+    background: var(--carta-color-2);
     gap: 5px;
     padding: 1rem 1.5rem;
     border-radius: 25px;
@@ -72,7 +72,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    padding: 10px 20px;
     transform: rotate(-90);
+    border-radius: 10px;
+    border: 1px solid var(--carta-color-2);
 }
 
 /* Personalizacion de barras de rango */
@@ -98,7 +101,7 @@ input[type="range"]::-webkit-slider-thumb {
 .titulo-cancion {
     font-family: var(--ff-heading);
     font-size: 14px;
-    color: var(--text);
+    color: var(--text-lienzo-accent-2);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 700;
@@ -107,7 +110,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .timer-label {
     font-size: 15px;
-    color: var(--text);
+    color: var(--text-lienzo-accent-2);
     opacity: 0.9;
     /* Mantiene el tamaño entre números constante */
     font-variant-numeric: tabular-nums;
@@ -122,6 +125,6 @@ input[type="range"]::-webkit-slider-thumb {
     height: 12px;
     background: #3498db;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid var(--text-lienzo-accent-2);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

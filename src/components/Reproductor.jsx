@@ -9,7 +9,7 @@ export const Reproductor = ({ videoId, titulo }) => {
     const intervaloRef = useRef(null)
     
     const [reproduciendo, setReproduciendo] = useState(false)
-    const [volumen, setVolumen] = useState(50)
+    const [volumen, setVolumen] = useState(37)
     const [progreso, setProgreso] = useState(0)
     const [duracion, setDuracion] = useState(0)
 
@@ -93,8 +93,8 @@ export const Reproductor = ({ videoId, titulo }) => {
 
                     <button className="btn-circular" onClick={toggleMusica}>
                         {reproduciendo ? 
-                            <IconoPausa size="30px" color="white" /> : 
-                            <IconoPlay size="30px" color="white" />
+                            <IconoPausa size="30px" color="var(--text-lienzo-accent-2)" /> : 
+                            <IconoPlay size="30px" color="var(--text-lienzo-accent-2)" />
                         }
                     </button>
                 </div>

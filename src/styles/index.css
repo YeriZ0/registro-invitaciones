@@ -3,14 +3,14 @@
 
 :root {
   /* Paleta de colores extraida de la imagen (verdes sabios y cremas) */
-  --bg: #e4e9e2;           /* Blanco crema suave del fondo */
+  --bg: #282e22;           /* Blanco crema suave del fondo */
   --text: #4a4a4a;         /* Gris carbon para lectura suave */
   --text-h: #2c2c2c;       /* Negro suave para titulos */
   --accent: #8fa183;       /* Verde salvia de las hojas */
   --accent-light: #adc29d; /* Verde muy claro para fondos de botones */
   --border: #e0e0d5;       /* Gris piedra para bordes sutiles */
   --white: #ffffff;
-  --featured: #caa649;
+  --featured: #fff570;
 
   /* Variables de Tipografia (deben coincidir con font.css) */
   --ff-accent: 'GreatVibes', cursive;
@@ -24,7 +24,10 @@
 
   /* Colores para los lienzos de la carta */
   --carta-color-1: #faf8f2;
-  --carta-color-2: var(--accent-light);
+  --text-lienzo-accent-1: var(--text);
+
+  --carta-color-2: #768566;
+  --text-lienzo-accent-2: #faf8f2;
 
   font-family: var(--ff-body);
   font-size: 18px;

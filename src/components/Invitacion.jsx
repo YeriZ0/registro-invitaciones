@@ -5,6 +5,8 @@ import { leerInvitadoUnico, actualizarDatos } from '../services/api'
 import { Lienzo } from './Lienzo'
 import { DecoracionHoja } from './DecoracionHoja'
 import { Reproductor } from './Reproductor'
+import { IconoPlay } from '../assets/icon/IconosReproductor'
+import { IconoCalendario } from '../assets/icon/iconosInvitacion'
 
 import '../styles/invitacion.css'
 
@@ -55,7 +57,7 @@ export const Invitacion = () => {
                             </div>
 
                             <div className="pase-seccion">
-                                <p className="txt-details" style={{ marginBottom: '10px' }}>Especialmente para:</p>
+                                <p className="txt-details" style={{ marginBottom: '10px' }}>Especialmente para</p>
                                 <h2 className="invitado-nombre-portada">{datos.nombre}</h2>
                             <div className="asientos-cantidad">
                                 <strong>
@@ -74,17 +76,49 @@ export const Invitacion = () => {
                 /* --- PARTE 2: CONTENIDO INTERIOR (Se revela al abrir) --- */
                 <div className="fade-in" key={'interior'}>
 
-                    <Lienzo color="var(--white)">
+                    <Lienzo color="#EEEFEA">
                         <DecoracionHoja fila={1} columna={3} size="150px" top="0" right="0" />
                         <p className="txt-romantic">" Ya no son dos, sino uno solo. Por tanto, lo que Dios ha unido, que no lo separe el hombre. " (Mateo 19:6)</p>
-                        <h2 className="info-titulo">¡Nos Casamos!</h2>
-                        <div className='txt-details'>
-                            <p>Dale <strong>Play</strong> a nuestra canción </p>
-                            <Reproductor videoId={"D9W4DLjmoOM"} titulo={"Melendi - Destino o Casualidad ft. Ha*Ash"} />
+        
+                        <div className="novios-nombres" style={{ padding: '20px 0'}}>
+                            Kenny <span className="novios-separador">&</span> Mauricio
+                        </div>
+                        <div className='txt-details conteiner'>
+                            <p>Dale</p>
+                                <div className='box'>
+                                    <div className='icon'> {<IconoPlay size='24' />} </div><strong>Play</strong>
+                                </div>
+                            <p>a nuestra canción.</p>
+                        </div>
+                        
+                        <Reproductor videoId={"D9W4DLjmoOM"} titulo={"Melendi - Destino o Casualidad ft. Ha*Ash"} />
+
+                    </Lienzo>
+
+                    <Lienzo color="var(--carta-color-2)">
+                        <p className='txt-romantic' style={{ color: 'var(--text-lienzo-accent-2)', paddingBottom: '20px' }}>
+                            Con el amor que nos une, la bendición de Dios y el apoyo de nuestros hijos, te invitamos a celebrar nuestra unión en matrimonio.
+                        </p>
+
+                        <div className='txt-details conteiner' style={{gap: '0', color: 'var(--text-lienzo-accent-2)'}}>
+                            <p>Anota la </p>
+                                <div className='box' style={{border: '0px solid #000'}}>
+                                    <div className='icon'> {<IconoCalendario size='24' />} </div>fecha
+                                </div>
+                            <p>de la celebración</p>
+                        </div>
+
+                        <div className='fecha-container'>
+                            <div className='day-letter'>Sábado</div>
+                            <div className='mounth-letter'>
+                                <p>Mayo</p>
+                                <div className='day'>16</div>
+                            </div>
+                            <div className='year-letter'>2026</div>
                         </div>
                     </Lienzo>
 
-                    <Lienzo color="var(--accent-light)">
+                    <Lienzo color="var(--white)">
                         <div className="info-boda">
                             <div className="info-detalle-item">SÁBADO, 15 DE OCTUBRE, 2026</div>
                             <div className="separador-elegante"></div>

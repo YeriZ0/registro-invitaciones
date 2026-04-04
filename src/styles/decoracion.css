@@ -13,7 +13,7 @@
   /* Zoom para aislar cada flor de sus vecinas */
   background-size: 450% 250%; 
   background-color: transparent; /* Fondo negro para integrar con el estilo de la imagen */
-  filter: drop-shadow(0 0 3px var(--bg));
+  filter: drop-shadow(0 0 1px var(--bg));
 }
 
 .h-1-1 { background-position: 5% 5%; }

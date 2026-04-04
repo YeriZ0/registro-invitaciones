@@ -46,6 +46,7 @@
   font-family: var(--ff-accent);
   font-size: var(--fs-lg);
   margin: 1rem 0;
+  text-wrap: balance;
 }
 
 
@@ -63,4 +64,5 @@
   font-family: var(--ff-heading);
   font-size: var(--fs-md);
   line-height: 1.6;
+  color: --text;
 }
