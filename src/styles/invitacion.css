@@ -129,14 +129,14 @@
   min-height: 125px;
   width: 100%;
   max-width: 600px;
-  gap: 5px;
+  gap: 15px;
   padding: 40px 0;
 }
 
 .day-letter,
 .year-letter {
-  width: 25%;
-  padding: 20px 0;
+  width: 30%;
+  padding: 15px 0;
   border-bottom: 1px solid var(--accent-light);
   border-top: 1px solid var(--accent-light);
   line-height: 1;
@@ -149,6 +149,7 @@
   height: auto;
   width: 30%;
   justify-content: flex-end;
+  align-items: center;
   gap: 20px;
 }
 
@@ -157,9 +158,11 @@
 .mounth-letter {
   --fs-fecha: clamp(1.25rem, 1vw + 1rem, 2rem);
   font-size: var(--fs-fecha);
+  text-align: center;
   color: var(--carta-color-1);
   text-transform: uppercase;
   font-weight: 600;
+  font-size: var(--fs-lg);
 
   p {
     margin: 0;
@@ -199,14 +202,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   padding: 20px 0 0 0;
   width: 100%;
   text-transform: uppercase;
+
+  p {
+    font-size: var(--fs-lg);
+    margin: 15px;
+    width: min-content;
+  }
 }
 
 .label-mapa {
   width: 100%;
+  max-width: 60ch;
+  font-size: var(--fs-md);
   margin: 0;
   text-wrap: balance;
 }
@@ -264,7 +275,118 @@
   transform: scale(1.05);
 }
 
-@media screen and (max-width: 600px) {
+.confirmar-container {
+  --fs-confirmar: clamp(1rem, 5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--carta-color-1);
+  width: 80%;
+  max-width: 450px;
+  padding: 2rem 0;
+  margin: 30px 0;
+  gap: 10px;
+  border-radius: 15px;
+  
+
+  .invitado-nombre-portada {
+    font-size: var(--fs-confirmar)
+  }
+
+  .asientos-cantidad {
+    font-size: calc(var(--fs-confirmar) * 0.5);
+  }
+}
+
+.acciones {
+  display: grid;
+  width: 80%;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  max-width: 450px;
+ 
+
+  button {
+    margin: 0;
+    min-width: 4rem;
+    border-radius: 10px;
+  }
+}
+
+.estado-invitado {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-family: var(--ff-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Variaciones segun el retorno de la funcion estado */
+.estado-invitado.confirmado {
+  background-color: #2c8133;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.estado-invitado.cancelado {
+  background-color: #da4057;
+  color: #c62828;
+  border: 1px solid #ebbbc0;
+}
+
+.estado-invitado.pendiente {
+  background-color: #ddb738;
+  color: #f9a825;
+  border: 1px solid #ffecb3;
+}
+
+/* Contenedor del mensaje final */
+.final-agradecimiento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.texto-despedida {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-xl);
+  color: var(--accent);
+  margin: 0;
+}
+
+.btn-cerrar-vista {
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 12px 30px;
+  font-family: var(--ff-heading);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 30px;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn-cerrar-vista:hover {
+  transform: scale(1.1);
+  background-color: var(--accent);
+  color: white;
+}
+
+@media screen and (max-width: 720px) {
   .conteiner {
     flex-direction: column;
 
