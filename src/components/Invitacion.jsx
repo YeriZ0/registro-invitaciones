@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { leerInvitadoUnico, actualizarDatos } from '../services/api'
+import { sizeVariable } from '../utils/sizeVariable'
 
 import { Lienzo } from './Lienzo'
 import { DecoracionHoja } from './DecoracionHoja'
 import { Reproductor } from './Reproductor'
 import { IconoPlay } from '../assets/icon/IconosReproductor'
-import { IconoCalendario } from '../assets/icon/iconosInvitacion'
+import { 
+    IconoCalendario,
+    IconoRuta,
+    IconoIglesia,
+    IconoBanquete
+} from '../assets/icon/iconosInvitacion'
 
 import '../styles/invitacion.css'
 
@@ -48,8 +54,8 @@ export const Invitacion = () => {
                 <div className="fade-in" key={'sobre'}>
                 <Lienzo color="var(--white)" clas>
                     {/* Decoraciones de la portada */}
-                    <DecoracionHoja fila={1} columna={2} size="250px" top="-100px" left="-80px" rotation={-240} />
-                    <DecoracionHoja fila={2} columna={4} size="220px" bottom="-90px" right="-80px" rotation={-30} />
+                    <DecoracionHoja fila={1} columna={2} size={sizeVariable(200, 25, 250)} top="-100px" left="-80px" rotation={-240} />
+                    <DecoracionHoja fila={2} columna={4} size={sizeVariable(180, 25, 220)} bottom="-90px" right="-80px" rotation={-30} />
 
                     <div className="portada-contenedor">
                             <div className="novios-nombres">
@@ -76,7 +82,7 @@ export const Invitacion = () => {
                 /* --- PARTE 2: CONTENIDO INTERIOR (Se revela al abrir) --- */
                 <div className="fade-in" key={'interior'}>
 
-                    <Lienzo color="#EEEFEA">
+                    <Lienzo color="var(--carta-color-1)">
                         <DecoracionHoja fila={1} columna={3} size="150px" top="0" right="0" />
                         <p className="txt-romantic">" Ya no son dos, sino uno solo. Por tanto, lo que Dios ha unido, que no lo separe el hombre. " (Mateo 19:6)</p>
         
@@ -100,16 +106,18 @@ export const Invitacion = () => {
                             Con el amor que nos une, la bendición de Dios y el apoyo de nuestros hijos, te invitamos a celebrar nuestra unión en matrimonio.
                         </p>
 
+                        <div className='separator' />
+
                         <div className='txt-details conteiner' style={{gap: '0', color: 'var(--text-lienzo-accent-2)'}}>
                             <p>Anota la </p>
                                 <div className='box' style={{border: '0px solid #000'}}>
-                                    <div className='icon'> {<IconoCalendario size='24' />} </div>fecha
+                                    <div className='icon'> {<IconoCalendario size='24' />} </div> <strong>fecha</strong>
                                 </div>
                             <p>de la celebración</p>
                         </div>
 
                         <div className='fecha-container'>
-                            <div className='day-letter'>Sábado</div>
+                            <div className='day-letter'>Sáb</div>
                             <div className='mounth-letter'>
                                 <p>Mayo</p>
                                 <div className='day'>16</div>
@@ -118,13 +126,64 @@ export const Invitacion = () => {
                         </div>
                     </Lienzo>
 
-                    <Lienzo color="var(--white)">
-                        <div className="info-boda">
-                            <div className="info-detalle-item">SÁBADO, 15 DE OCTUBRE, 2026</div>
-                            <div className="separador-elegante"></div>
-                            <div className="info-detalle-item">18:00 HORAS</div>
-                            <div className="info-detalle-item" style={{ fontWeight: '600', marginTop: '1rem' }}>QUINTA LAS ROSAS</div>
+                    <Lienzo color="var(--carta-color-1)">
+                        
+                        <div className='informacion-actividad'>
+                            <div className='icon'> <IconoIglesia size='30' /> </div>
+                            <p><strong>Ceremonia Religiosa</strong></p>
                         </div>
+                        <p className='label-mapa'>
+                            Iglesia Divina Misericordia, Valle Nuevo, San José La Majada, Juayúa, Sonsonate.
+                        </p>
+
+                        <div className='mapa' style={{ width: sizeVariable(280, 100, 500)}}>
+                            <div className='mapa-proporcion'>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1936.9582755026534!2d-89.70667625950028!3d13.844047469387293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62bf0047a87331%3A0x98566767c81792f3!2sIglesia%20Profetica%20la%20Ciudad%20de%20Sion%20Col.%20San%20Rafael%20Valle%20Nuevo%20LA%20Majada%20Juay%C3%BAa%20Sonsonate!5e0!3m2!1ses-419!2ssv!4v1775355807193!5m2!1ses-419!2ssv" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                        
+                        <a
+                            href="https://waze.com/ul?ll=13.8441374,-89.7058395&navigate=yes" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className='btn-mapa'>
+                            <div className='icon'> <IconoRuta size='25' /> </div>
+                            <p>Ver trayecto en <strong>Waze</strong></p>
+                        </a>
+                        
+                        <div className='separator' />
+
+                        <div className='informacion-actividad'>
+                            <div className='icon'> <IconoBanquete size='30' /> </div>
+                            <p><strong>Recepción</strong></p>
+                        </div>
+                        <p className='label-mapa'>
+                            Rancho el Plan,  Valle Nuevo, San José La Majada, Juayúa, Sonsonate (contiguo a la Iglesia Divina Misericordia).
+                        </p>
+
+                        <div className='mapa' style={{ width: sizeVariable(280, 100, 500)}}>
+                            <div className='mapa-proporcion'>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1936.9577981711482!2d-89.70692302272967!3d13.844104763814594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62bfda4987bdaf%3A0xf01d220d0bb7932f!2sRANCHO%20EL%20PLAN!5e0!3m2!1ses-419!2ssv!4v1775349389383!5m2!1ses-419!2ssv"
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                        
+                        <a 
+                            href="https://waze.com/ul?ll=13.8442,-89.7025&navigate=yes" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className='btn-mapa'>
+                            <div className='icon'> <IconoRuta size='25' /> </div>
+                            <p>Ver trayecto en <strong>Waze</strong></p>
+                        </a>
+
                     </Lienzo>
 
                     {/* Aquí irán las secciones de Mapa, Música, Vestimenta y Confirmación */}
