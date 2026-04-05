@@ -1,0 +1,52 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
+}
+
+.loader-title {
+  font-family: var(--ff-heading, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: var(--accent, #A75F63);
+  margin-top: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.bubble-loader {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  background: var(--accent, #FE576C);
+  border-radius: 50%;
+  animation: bubbly 0.9s infinite alternate;
+}
+
+#bubble2 { 
+  animation-delay: 0.27s; 
+}
+
+#bubble3 { 
+  animation-delay: 0.54s; 
+}
+
+@keyframes bubbly {
+  0% {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    width: 40px;
+    height: 40px;
+    opacity: 0.1;
+    transform: translateY(-25px);
+  }
+}

@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import App from './App.jsx'
-import { Invitacion } from './components/Invitacion.jsx'
+import { Invitacion } from './pages/Invitacion.jsx'
 
 import './styles/font.css'
 import './styles/index.css'

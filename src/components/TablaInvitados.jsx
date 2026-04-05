@@ -2,6 +2,13 @@ import { useState } from 'react'
 import { actualizarDatos, eliminarRegistro } from '../services/api'
 import { generarSlug } from '../utils/text'
 
+import { 
+    IconoGuardar,
+    IconoEditar,
+    IconoEliminar,
+    IconoCopiar
+ } from '../assets/icon/IconTable'
+
 export const TablaInvitados = ({ datos, recargar }) => {
     const [editando, setEditando] = useState(null)
 
@@ -67,16 +74,16 @@ export const TablaInvitados = ({ datos, recargar }) => {
                                         inv.id, 
                                         document.getElementById(`res-${inv.id}`).value,
                                         document.getElementById(`est-${inv.id}`).value
-                                    )}>Guardar</button>
-                                    : <button onClick={() => setEditando(inv.id)}>Editar</button>
+                                    )}> <IconoGuardar size='24' /> </button>
+                                    : <button onClick={() => setEditando(inv.id)}> <IconoEditar /> </button>
                                 }
-                                <button onClick={() => borrar(inv.id)}>Eliminar</button>
+                                <button onClick={() => borrar(inv.id)}> <IconoEliminar /> </button>
                                 {/* Boton para generar y copiar el enlace personalizado */}
                                 <button 
                                     onClick={() => copiarEnlace(inv.nombre)}
                                     className="btn-copiar"
                                 >
-                                    Copiar Link
+                                    <IconoCopiar size='24' />
                                 </button>
                             </div>
                         </td>

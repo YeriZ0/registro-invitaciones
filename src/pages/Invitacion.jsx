@@ -4,9 +4,10 @@ import { leerInvitadoUnico, actualizarDatos } from '../services/api'
 import { sizeVariable } from '../utils/sizeVariable'
 import { itinerarioActividades } from '../data/dataInvitacion'
 
-import { Lienzo } from './Lienzo'
-import { DecoracionHoja } from './DecoracionHoja'
-import { Reproductor } from './Reproductor'
+import { Loader } from '../components/Loader'
+import { Lienzo } from '../components/Lienzo'
+import { DecoracionHoja } from '../components/DecoracionHoja'
+import { Reproductor } from '../components/Reproductor'
 import { IconoPlay } from '../assets/icon/IconosReproductor'
 import { 
     IconoCalendario,
@@ -21,7 +22,7 @@ import {
     IconoWhatsapp,
     IconoCorazon
 } from '../assets/icon/IconosInvitacion'
-import { LineaTemporal } from './LineaTemporal'
+import { LineaTemporal } from '../components/LineaTemporal'
 
 import '../styles/invitacion.css'
 
@@ -59,7 +60,7 @@ export const Invitacion = () => {
         }
     }
 
-    if (cargando) return <p>Cargando invitacion...</p>
+    if (cargando) return <Loader />
     if (!datos || !datos.encontrado) return <p>Invitacion no encontrada</p>
 
     return (

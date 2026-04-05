@@ -1,6 +1,19 @@
 /* Importacion de tus fuentes locales */
 @import './font.css';
 
+* {
+  /* Deshabilita la seleccion de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Deshabilita el arrastre de imagenes */
+  -webkit-user-drag: none;
+}
+
+
+
 :root {
   /* Paleta de colores extraida de la imagen (verdes sabios y cremas) */
   --bg: #282e22;           /* Blanco crema suave del fondo */

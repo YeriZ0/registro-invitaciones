@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { TablaInvitados } from './components/TablaInvitados'
 import { leerInvitados } from '../src/services/api'
+import { Loader } from './components/Loader'
 
 function App() {
 
   const [datos, setDatos] = useState([])
+  const [cargando, setCargando] = useState(true)
 
   const cargarDatos = async () => {
     try {
@@ -17,12 +19,16 @@ function App() {
       
     } catch (error) {
       console.error("Error al obtener los datos: ", error)
+    } finally {
+      setCargando(false)
     }
   }
 
   useEffect(() => {
     cargarDatos()
   }, [])
+
+  if(cargando) return <Loader />
 
   return (
     <>

@@ -312,6 +312,13 @@
     margin: 0;
     min-width: 4rem;
     border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  button:hover {
+    background-color: #465e3752;
+    opacity: 0.9;
+    transform: scale(1.05);
   }
 }
 
