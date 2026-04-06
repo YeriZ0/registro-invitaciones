@@ -67,6 +67,15 @@ export const Invitacion = () => {
 
     }
 
+    const manejarCierre = () => {
+        setAbierta(false)
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
     if (cargando) return <Loader />
     if (!datos || !datos.encontrado) return <p className='txt-romantic' style={{ color: 'var(--text-lienzo-accent-2'}}>Invitacion no encontrada</p>
 
@@ -78,8 +87,8 @@ export const Invitacion = () => {
                 <div className="fade-in" key={'sobre'}>
                 <Lienzo color="var(--carta-color-1)" clas>
                     {/* Decoraciones de la portada */}
-                    <DecoracionHoja fila={1} columna={2} size={sizeVariable(200, 25, 250)} top="-100px" left="-80px" rotation={-240} />
-                    <DecoracionHoja fila={2} columna={4} size={sizeVariable(180, 25, 220)} bottom="-90px" right="-80px" rotation={-30} />
+                    <DecoracionHoja fila={1} columna={2} size={sizeVariable(225, 25, 250)} top={sizeVariable(-50, 2, 90)} left="-110px" rotation={5} />
+                    <DecoracionHoja fila={2} columna={4} size={sizeVariable(180, 25, 220)} bottom="-70px" right="-90px" rotation={-30} />
 
                     <div className="portada-contenedor">
                             <div className="novios-nombres">
@@ -107,7 +116,11 @@ export const Invitacion = () => {
                 <div className="fade-in" key={'interior'}>
 
                     <Lienzo color="var(--carta-color-1)">
-                        {/* <DecoracionHoja fila={1} columna={3} size="150px" top="0" right="0" /> */}
+                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(150, 25, 220)} top={sizeVariable(540, 50, 30)} right={-65} rotation={-60}/>
+                        <DecoracionHoja fila={1} columna={1} size={sizeVariable(160, 25, 230)} top={sizeVariable(420, 50, 30)} left={-85} rotation={45} />
+                        {/* <DecoracionHoja fila={1} columna={4} size={sizeVariable(220, 25, 250)} bottom={30} right={-110} rotation={-70} />
+                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={320} left={-120} rotation={15} /> */}
+                        
                         <p className="txt-romantic" style={{marginBottom: 0}}>" Ya no son dos, sino uno solo.</p>
                         <p className="txt-romantic" style={{marginTop: 0}}>Por tanto, lo que Dios ha unido, que no lo separe el hombre. " (Mateo 19:6)</p>
         
@@ -127,6 +140,9 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color="var(--carta-color-2)">
+                        <DecoracionHoja fila={1} columna={2} size={sizeVariable(170, 25, 220)} top={-10} left={-90} rotation={10} />
+                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(200, 25, 240)} top={330} right={-90} rotation={-165} />
+
                         <p className='txt-romantic' style={{ color: 'var(--text-lienzo-accent-2)', paddingBottom: '20px' }}>
                             Con el amor que nos une, la bendición de Dios y el apoyo de nuestros hijos, te invitamos a celebrar nuestra unión en matrimonio.
                         </p>
@@ -152,6 +168,11 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color="var(--carta-color-1)">
+                        <DecoracionHoja fila={1} columna={1} size={sizeVariable(190, 25, 240)} top={570} right={-90} rotation={-35} />
+                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(180, 25, 250)} top={320} left={-80} rotation={20} />
+
+                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(220, 25, 250)} bottom={60} right={-100} rotation={-70} />
+                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={360} left={-110} rotation={25} />
                         
                         <div className='informacion-actividad'>
                             <div className='icon'> <IconoIglesia size='55' /> </div>
@@ -227,6 +248,9 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color='var(--carta-color-1)'>
+                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(200, 25, 250)} bottom={200} right={-100} rotation={-70} />
+                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} top={0} left={-110} rotation={25} />
+
                         <div className='informacion-actividad'>
                             <div className='icon'>
                                 <IconoVestido size='50'/>
@@ -254,6 +278,9 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color='var(--carta-color-2)'>
+                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(200, 25, 240)} top={330} left={-70} rotation={20} />
+                        <DecoracionHoja fila={1} columna={1} size={sizeVariable(200, 25, 250)} bottom={150} right={-90} rotation={-20} />
+
                         <div className='informacion-actividad' style={{ color: 'var(--text-lienzo-accent-2)' }}>
                             <div className='icon'>
                                 <IconoUsuarioConfirmado size='50' /> 
@@ -289,6 +316,9 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color="var(--carta-color-1)">
+                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(200, 25, 250)} bottom={140} right={-100} rotation={-70} />
+                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={170} left={-110} rotation={25} />
+
                         <div className="final-agradecimiento">
                             <p className="texto-despedida">
                                 <div className='icon'> <IconoCorazon size='70'/> </div>
@@ -297,11 +327,17 @@ export const Invitacion = () => {
 
                             <button 
                                 className="btn-cerrar-vista"
-                                onClick={() => setAbierta(false)} 
+                                onClick={manejarCierre} 
                             >
                                 Finalizar
                             </button>
                         </div>
+                            
+                        <div className='creditos'>
+                            <img src="/github.svg" alt="Github" />
+                            <p>Designed by Fredy Campos</p>
+                        </div>
+                        
                     </Lienzo>
                 </div>
             )}

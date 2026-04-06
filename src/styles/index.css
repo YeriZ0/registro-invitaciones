@@ -12,7 +12,9 @@
   -webkit-user-drag: none;
 }
 
-
+html, body {
+  overscroll-behavior: none;
+}
 
 :root {
   /* Paleta de colores extraida de la imagen (verdes sabios y cremas) */
@@ -57,6 +59,8 @@ body {
   display: flex;
   place-items: center;
   min-height: 100dvh;
+  overflow-x: hidden;
+
 }
 
 #root {
@@ -65,6 +69,10 @@ body {
   padding: 2rem;
   text-align: center;
   box-sizing: border-box;
+  overflow: clip visible;
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* Estilos de encabezados refinados */

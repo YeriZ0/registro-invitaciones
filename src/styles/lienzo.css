@@ -2,9 +2,10 @@
   position: relative;
   width: 100%;
   max-width: 900px; /* Ancho de una carta real */
-  margin: 0 auto; /* Centrar en la pagina */
+  margin: auto; /* Centrar en la pagina */
   box-sizing: border-box;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .contenido-lienzo {
@@ -16,4 +17,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+@media screen and (max-width: 720px) {
+  .lienzo {
+    overflow: visible;
+  }
 }
