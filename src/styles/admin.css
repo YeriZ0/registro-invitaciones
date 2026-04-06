@@ -1,0 +1,225 @@
+.container-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Establece tipografia y color general para la vista */
+.admin-layout {
+  width: 100dvw;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #333;
+}
+
+.titulo-admin {
+  color: var(--text-lienzo-accent-2);
+  font-size: 2rem;
+}
+
+.subtitulo-admin {
+  color: #34495e;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Agrega un fondo blanco bordes redondeados y sombra para separar secciones */
+.admin-section {
+  place-items: center;
+  background: var(--text-lienzo-accent-2);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem 0;
+  margin: 2rem 0;
+}
+
+/* overflow-x auto permite deslizar la tabla en telefonos sin romper el layout */
+.table-container,
+.contenedor-totales {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e1e8ed;
+}
+
+/* border-collapse unifica los bordes de las celdas min-width evita que se aplaste */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+/* Quita el borde inferior de la ultima fila para mantener la estetica del borde exterior */
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Agrega un color de fondo tenue al pasar el cursor sobre la fila */
+tr:hover td {
+  background-color: #f8f9fa;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+  text-align: center;
+}
+
+input[type="number"],
+select,
+input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 250px;
+}
+
+/* display flex agrupa los botones en una linea y justify-content los centra */
+.grupo-botones {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Quita los estilos por defecto de los botones HTML para hacerlos minimalistas */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #495057;
+}
+
+button:hover {
+  background-color: #e9ecef;
+}
+
+.btn-copiar {
+  color: #0d6efd;
+}
+
+.btn-copiar:hover {
+  background-color: #cfe2ff;
+}
+
+/* Contrae la columna ID al ancho minimo necesario en pantallas grandes */
+.tabla-invitados th:first-child,
+.tabla-invitados .col-id {
+  width: 1%;
+  white-space: nowrap;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .admin-layout {
+    padding: 1rem !important;
+  }
+
+  .admin-section {
+    padding: 1rem;
+  }
+
+  .titulo-admin {
+    font-size: 1.5rem;
+  }
+
+  .subtitulo-admin {
+    font-size: 1.25rem;
+  }
+
+  /* Restablece el ancho de las tablas para evitar desbordamiento horizontal */
+  table {
+    min-width: 100%;
+  }
+
+  /* Convierte la estructura de tabla a bloques de visualizacion nativa */
+  .tabla-invitados,
+  .tabla-invitados tbody {
+    display: block;
+    width: 100%;
+  }
+
+  /* Oculta los encabezados de la tabla en dispositivos moviles */
+  .tabla-invitados thead {
+    display: none;
+  }
+
+  /* Quita los bordes del contenedor para aprovechar el espacio */
+  .table-container {
+    border: none;
+    overflow-x: visible;
+  }
+
+  /* Transforma las filas en tarjetas individuales */
+  .tabla-invitados tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* Transforma las celdas en filas flexibles y usa data-label para los titulos */
+  .tabla-invitados td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f8f9fa;
+    padding: 0.75rem 0;
+    text-align: right;
+    box-sizing: border-box;
+  }
+
+  /* Agrega el titulo de la columna leyendo el atributo data-label del HTML */
+  .tabla-invitados td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #495057;
+    text-align: left;
+    margin-right: 1rem;
+  }
+
+  /* Estiliza la ultima celda que contiene las acciones para ubicarla en la parte inferior */
+  .tabla-invitados td:last-child {
+    border-bottom: none;
+    margin-top: 0.5rem;
+    padding-bottom: 0;
+    justify-content: center;
+  }
+
+  /* Oculta el texto Acciones en el contenedor de botones */
+  .tabla-invitados td:last-child::before {
+    display: none;
+  }
+
+  .grupo-botones {
+    width: 100%;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+}

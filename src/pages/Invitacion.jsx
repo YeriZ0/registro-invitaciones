@@ -24,6 +24,7 @@ import {
 } from '../assets/icon/IconosInvitacion'
 import { LineaTemporal } from '../components/LineaTemporal'
 
+import { Toaster, toast } from 'vibe-toast'
 import '../styles/invitacion.css'
 
 export const Invitacion = () => {
@@ -54,14 +55,20 @@ export const Invitacion = () => {
     }, [slug])
 
     const confirmar = async (nuevoEstado) => {
-        const res = await actualizarDatos(datos.id, datos.reserva, nuevoEstado)
-        if (res.completado) {
-            setDatos({...datos, estado: nuevoEstado})
-        }
+
+        toast.promise(actualizarDatos(datos.id, datos.reserva, nuevoEstado), {
+            loading: 'Enviando tu respuesta...',
+            success: () => {
+                setDatos({...datos, estado: nuevoEstado})
+                return 'Recibimos tu respuesta'
+            },
+            error: 'Error al guardar tu respuesta'
+        })
+
     }
 
     if (cargando) return <Loader />
-    if (!datos || !datos.encontrado) return <p>Invitacion no encontrada</p>
+    if (!datos || !datos.encontrado) return <p className='txt-romantic' style={{ color: 'var(--text-lienzo-accent-2'}}>Invitacion no encontrada</p>
 
     return (
         <main>
@@ -100,7 +107,7 @@ export const Invitacion = () => {
                 <div className="fade-in" key={'interior'}>
 
                     <Lienzo color="var(--carta-color-1)">
-                        <DecoracionHoja fila={1} columna={3} size="150px" top="0" right="0" />
+                        {/* <DecoracionHoja fila={1} columna={3} size="150px" top="0" right="0" /> */}
                         <p className="txt-romantic" style={{marginBottom: 0}}>" Ya no son dos, sino uno solo.</p>
                         <p className="txt-romantic" style={{marginTop: 0}}>Por tanto, lo que Dios ha unido, que no lo separe el hombre. " (Mateo 19:6)</p>
         
@@ -298,6 +305,9 @@ export const Invitacion = () => {
                     </Lienzo>
                 </div>
             )}
+
+            <Toaster position="top-center" />
         </main>  
+        
     )
 }
