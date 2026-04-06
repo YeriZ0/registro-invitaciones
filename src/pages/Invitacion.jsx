@@ -116,8 +116,8 @@ export const Invitacion = () => {
                 <div className="fade-in" key={'interior'}>
 
                     <Lienzo color="var(--carta-color-1)">
-                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(150, 25, 220)} top={sizeVariable(540, 50, 30)} right={-65} rotation={-60}/>
-                        <DecoracionHoja fila={1} columna={1} size={sizeVariable(160, 25, 230)} top={sizeVariable(420, 50, 30)} left={-85} rotation={45} />
+                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(150, 25, 220)} top={490} right={-65} rotation={-60}/>
+                        <DecoracionHoja fila={1} columna={1} size={sizeVariable(160, 25, 230)} top={490} left={-85} rotation={45} />
                         {/* <DecoracionHoja fila={1} columna={4} size={sizeVariable(220, 25, 250)} bottom={30} right={-110} rotation={-70} />
                         <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={320} left={-120} rotation={15} /> */}
                         
@@ -140,8 +140,8 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color="var(--carta-color-2)">
-                        <DecoracionHoja fila={1} columna={2} size={sizeVariable(170, 25, 220)} top={-10} left={-90} rotation={10} />
-                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(200, 25, 240)} top={330} right={-90} rotation={-165} />
+                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(190, 25, 220)} top={-70} left={-120} rotation={15} />
+                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(230, 25, 260)} top={360} right={-110} rotation={-160} />
 
                         <p className='txt-romantic' style={{ color: 'var(--text-lienzo-accent-2)', paddingBottom: '20px' }}>
                             Con el amor que nos une, la bendición de Dios y el apoyo de nuestros hijos, te invitamos a celebrar nuestra unión en matrimonio.
@@ -168,11 +168,9 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color="var(--carta-color-1)">
-                        <DecoracionHoja fila={1} columna={1} size={sizeVariable(190, 25, 240)} top={570} right={-90} rotation={-35} />
-                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(180, 25, 250)} top={320} left={-80} rotation={20} />
+                        <DecoracionHoja fila={1} columna={1} size={sizeVariable(190, 25, 240)} top={560} right={-100} rotation={-35} />
 
-                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(220, 25, 250)} bottom={60} right={-100} rotation={-70} />
-                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={360} left={-110} rotation={25} />
+                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={170} left={-110} rotation={25} />
                         
                         <div className='informacion-actividad'>
                             <div className='icon'> <IconoIglesia size='55' /> </div>
@@ -248,7 +246,7 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color='var(--carta-color-1)'>
-                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(200, 25, 250)} bottom={200} right={-100} rotation={-70} />
+                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(200, 25, 250)} bottom={360} right={-100} rotation={-70} />
                         <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} top={0} left={-110} rotation={25} />
 
                         <div className='informacion-actividad'>
@@ -278,7 +276,7 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color='var(--carta-color-2)'>
-                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(200, 25, 240)} top={330} left={-70} rotation={20} />
+                        <DecoracionHoja fila={1} columna={3} size={sizeVariable(200, 25, 240)} top={330} left={-75} rotation={20} />
                         <DecoracionHoja fila={1} columna={1} size={sizeVariable(200, 25, 250)} bottom={150} right={-90} rotation={-20} />
 
                         <div className='informacion-actividad' style={{ color: 'var(--text-lienzo-accent-2)' }}>
@@ -316,8 +314,8 @@ export const Invitacion = () => {
                     </Lienzo>
 
                     <Lienzo color="var(--carta-color-1)">
-                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(200, 25, 250)} bottom={140} right={-100} rotation={-70} />
-                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={170} left={-110} rotation={25} />
+                        <DecoracionHoja fila={1} columna={4} size={sizeVariable(170, 25, 250)} bottom={140} right={-100} rotation={-70} />
+                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(160, 25, 220)} bottom={170} left={-110} rotation={25} />
 
                         <div className="final-agradecimiento">
                             <p className="texto-despedida">
@@ -335,7 +333,7 @@ export const Invitacion = () => {
                             
                         <div className='creditos'>
                             <img src="/github.svg" alt="Github" />
-                            <p>Designed by Fredy Campos</p>
+                            <p>Designed by <strong>Fredy Campos</strong></p>
                         </div>
                         
                     </Lienzo>
