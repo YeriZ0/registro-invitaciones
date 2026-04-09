@@ -27,7 +27,19 @@
   align-items: center;
   justify-content: center;
   min-height: 70vh;
-  padding: 0.5rem 2rem;
+  padding: 0 0;
+  padding-bottom: 0.5rem;
+}
+
+.imagen-portada-principal {
+  width: calc(100% + 4rem); 
+  height: 300px;
+  padding-top: 0;
+  margin-top: 0;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  transform: scale(1.5);
 }
 
 /* Nombres de los novios: El foco principal */
@@ -50,7 +62,7 @@
 
 /* Información del invitado y pases */
 .pase-seccion {
-  border-top: 1px solid var(--border);
+  /* border-top: 1px solid var(--border); */
   padding-top: 1.5rem;
   width: 100%;
   max-width: 300px;
@@ -284,7 +296,7 @@
   background-color: var(--carta-color-1);
   width: 80%;
   max-width: 450px;
-  padding: 2rem 0;
+  padding: 2rem 0.5rem;
   margin: 30px 0;
   gap: 10px;
   border-radius: 15px;
@@ -295,7 +307,7 @@
   }
 
   .asientos-cantidad {
-    font-size: calc(var(--fs-confirmar) * 0.5);
+    font-size: calc(var(--fs-confirmar) * 0.6);
   }
 }
 
@@ -426,4 +438,11 @@
     flex-direction: column;
     gap: 0;
   }
+}
+
+@media screen and (min-width: 721px) {
+  .imagen-portada-principal {
+  margin: 7rem 0;
+  transform: scale(1.9);
+}
 }

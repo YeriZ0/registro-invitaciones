@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { leerInvitadoUnico, actualizarDatos } from '../services/api'
 import { sizeVariable } from '../utils/sizeVariable'
+import { useWindowWidth } from '../utils/useWindowWidth'
+import { precargarImagenes } from '../utils/precargarImagenes'
 import { itinerarioActividades } from '../data/dataInvitacion'
 
 import { Loader } from '../components/Loader'
@@ -22,6 +24,8 @@ import {
     IconoWhatsapp,
     IconoCorazon
 } from '../assets/icon/IconosInvitacion'
+import imgEscritorio from '../assets/images/kenny-mauricio-escritorio.png'
+import imgMovil from '../assets/images/kenny-mauricio-movil.png'
 import { LineaTemporal } from '../components/LineaTemporal'
 
 import { Toaster, toast } from 'vibe-toast'
@@ -31,7 +35,9 @@ export const Invitacion = () => {
     const [datos, setDatos] = useState(null)
     const [cargando, setCargando] = useState(true)
     const [abierta, setAbierta] = useState(null)
-    const { slug } = useParams()
+
+    const anchoPantalla = useWindowWidth()
+    const esMovil = anchoPantalla < 450
     
     const estado = (datos) => {
         if (datos.estado == 'confirmado') return 'confirmado'
@@ -40,18 +46,24 @@ export const Invitacion = () => {
         return 'pendiente'
     }
 
+
+    const { slug } = useParams()
+
     useEffect(() => {
-        const traerDatos = async () => {
+        const iniciarAplicacion = async () => {
             try {
-                const resultado = await leerInvitadoUnico(slug)
-                setDatos(resultado)
+                const [resultadoDatos] = await Promise.all([
+                    leerInvitadoUnico(slug),
+                    precargarImagenes([imgMovil, imgEscritorio])
+                ])
+                setDatos(resultadoDatos)
             } catch (error) {
                 console.error("Error al cargar la invitacion: ", error)
             } finally {
                 setCargando(false)
             }
         }
-        traerDatos()
+        iniciarAplicacion()
     }, [slug])
 
     const confirmar = async (nuevoEstado) => {
@@ -67,8 +79,8 @@ export const Invitacion = () => {
 
     }
 
-    const manejarCierre = () => {
-        setAbierta(false)
+    const manejarTarjeta = () => {
+        abierta ? setAbierta(false) : setAbierta(true)
 
         window.scrollTo({
             top: 0,
@@ -85,29 +97,33 @@ export const Invitacion = () => {
             {/* --- PARTE 1: EL SOBRE / PASTA (Siempre visible o hasta que se abra) --- */}
             {!abierta ? (
                 <div className="fade-in" key={'sobre'}>
-                <Lienzo color="var(--carta-color-1)" clas>
-                    {/* Decoraciones de la portada */}
-                    <DecoracionHoja fila={1} columna={2} size={sizeVariable(225, 25, 250)} top={sizeVariable(-50, 2, 90)} left="-110px" rotation={5} />
-                    <DecoracionHoja fila={2} columna={4} size={sizeVariable(180, 25, 220)} bottom="-70px" right="-90px" rotation={-30} />
-
+                <Lienzo color="var(--carta-color-1)">
+                    
                     <div className="portada-contenedor">
-                            <div className="novios-nombres">
-                                Kenny <span className="novios-separador">&</span> Mauricio
-                            </div>
+                        
+                        {/* <div className="novios-nombres"> 
+                            Kenny <span className="novios-separador">&</span> Mauricio
+                        </div> */}
 
-                            <div className="pase-seccion">
-                                <p className="txt-details" style={{ marginBottom: '10px' }}>Especialmente para</p>
-                                <h2 className="invitado-nombre-portada">{datos.nombre}</h2>
-                                <div className="asientos-cantidad">
-                                    <strong>
-                                        {datos.reserva} {datos.reserva > 1 ? 'PASES RESERVADOS' : 'PASE RESERVADO'}
-                                    </strong>
-                                </div>
-                            </div>
+                        <img 
+                            src={esMovil ? imgMovil : imgEscritorio} 
+                            alt="Kenny y Mauricio" 
+                            className="imagen-portada-principal" 
+                        />
 
-                            <button className="btn-abrir" onClick={() => setAbierta(true)}>
-                                Abrir Invitación
-                            </button>
+                        <div className="pase-seccion">
+                            <p className="txt-details" style={{ marginBottom: '10px' }}>Especialmente para</p>
+                            <h2 className="invitado-nombre-portada">{datos.nombre}</h2>
+                            <div className="asientos-cantidad">
+                                <strong>
+                                    {datos.reserva} {datos.reserva > 1 ? 'PASES RESERVADOS' : 'PASE RESERVADO'}
+                                </strong>
+                            </div>
+                        </div>
+
+                        <button className="btn-abrir" onClick={manejarTarjeta}>
+                            Abrir Invitación
+                        </button>
                     </div>
                 </Lienzo>
                 </div>
@@ -118,14 +134,16 @@ export const Invitacion = () => {
                     <Lienzo color="var(--carta-color-1)">
                         <DecoracionHoja fila={1} columna={3} size={sizeVariable(150, 25, 220)} top={490} right={-65} rotation={-60}/>
                         <DecoracionHoja fila={1} columna={1} size={sizeVariable(160, 25, 230)} top={490} left={-85} rotation={45} />
-                        {/* <DecoracionHoja fila={1} columna={4} size={sizeVariable(220, 25, 250)} bottom={30} right={-110} rotation={-70} />
-                        <DecoracionHoja fila={2} columna={1} size={sizeVariable(180, 25, 220)} bottom={320} left={-120} rotation={15} /> */}
                         
                         <p className="txt-romantic" style={{marginBottom: 0}}>" Ya no son dos, sino uno solo.</p>
                         <p className="txt-romantic" style={{marginTop: 0}}>Por tanto, lo que Dios ha unido, que no lo separe el hombre. " (Mateo 19:6)</p>
         
                         <div className="novios-nombres" style={{ padding: '20px 0'}}>
-                            Kenny <div className='icon' style={{ paddingTop: '20px'}}> <IconoCorazon size='70'/> </div> Mauricio
+                            Kenny 
+                            <div className='icon' style={{ paddingTop: '20px'}}> 
+                                <IconoCorazon size={esMovil ? '35' : '70'}/> 
+                            </div> 
+                            Mauricio
                         </div>
                         <div className='txt-details conteiner'>
                             <p>Dale</p>
@@ -291,10 +309,11 @@ export const Invitacion = () => {
                         </p>
 
                         <div className='confirmar-container'>
-                            <h2 className="invitado-nombre-portada">{datos.nombre}</h2>
+                            <h2 className="invitado-nombre-portada"> <strong>{datos.nombre}</strong> </h2>
                             <div className="asientos-cantidad">
+                                <p style={{ margin: '0', fontSize: 'var(--fs-lg)'}}>{datos.reserva}</p>
                                 <strong>
-                                    {datos.reserva} {datos.reserva > 1 ? 'PASES RESERVADOS' : 'PASE RESERVADO'}
+                                    {datos.reserva > 1 ? 'PASES RESERVADOS' : 'PASE RESERVADO'}
                                 </strong>
                             </div>
 
@@ -325,7 +344,7 @@ export const Invitacion = () => {
 
                             <button 
                                 className="btn-cerrar-vista"
-                                onClick={manejarCierre} 
+                                onClick={manejarTarjeta} 
                             >
                                 Finalizar
                             </button>
