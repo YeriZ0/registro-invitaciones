@@ -42,6 +42,10 @@
   transform: scale(1.5);
 }
 
+.imagen-contenido-novios {
+  width: calc(100% + 4rem);
+}
+
 /* Nombres de los novios: El foco principal */
 .novios-nombres {
   text-align: center;

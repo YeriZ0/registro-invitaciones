@@ -24,12 +24,14 @@ import {
     IconoWhatsapp,
     IconoCorazon
 } from '../assets/icon/IconosInvitacion'
-import imgEscritorio from '../assets/images/kenny-mauricio-escritorio.png'
-import imgMovil from '../assets/images/kenny-mauricio-movil.png'
 import { LineaTemporal } from '../components/LineaTemporal'
 
 import { Toaster, toast } from 'vibe-toast'
 import '../styles/invitacion.css'
+
+import imgEscritorio from '../assets/images/kenny-mauricio-escritorio.png'
+import imgMovil from '../assets/images/kenny-mauricio-movil.png'
+import imgNovios from '../assets/images/pedida.png'
 
 export const Invitacion = () => {
     const [datos, setDatos] = useState(null)
@@ -131,12 +133,19 @@ export const Invitacion = () => {
                 /* --- PARTE 2: CONTENIDO INTERIOR (Se revela al abrir) --- */
                 <div className="fade-in" key={'interior'}>
 
+                    <Lienzo style={{ padding: 0 }}>
+                        <img 
+                            src={imgNovios} 
+                            alt="Kenny y Mauricio" 
+                            className="imagen-contenido-novios" 
+                        />
+                    </Lienzo>
+
                     <Lienzo color="var(--carta-color-1)">
                         <DecoracionHoja fila={1} columna={3} size={sizeVariable(150, 25, 220)} top={490} right={-65} rotation={-60}/>
                         <DecoracionHoja fila={1} columna={1} size={sizeVariable(160, 25, 230)} top={490} left={-85} rotation={45} />
                         
-                        <p className="txt-romantic" style={{marginBottom: 0}}>" Ya no son dos, sino uno solo.</p>
-                        <p className="txt-romantic" style={{marginTop: 0}}>Por tanto, lo que Dios ha unido, que no lo separe el hombre. " (Mateo 19:6)</p>
+                        <p className="txt-romantic" style={{ margin: '0 20px'}}>" Ya no son dos, sino uno solo. Por tanto, lo que Dios ha unido, que no lo separe el hombre." (Mateo 19:6)</p>
         
                         <div className="novios-nombres" style={{ padding: '20px 0'}}>
                             Kenny 
