@@ -42,8 +42,8 @@ export const Invitacion = () => {
     const esMovil = anchoPantalla < 450
     
     const estado = (datos) => {
-        if (datos.estado == 'confirmado') return 'confirmado'
-        if (datos.estado == 'cancelado') return 'cancelado'
+        if (datos.estado == 'confirmado') return '¡ Asistiré !'
+        if (datos.estado == 'cancelado') return 'No podré asistir...'
 
         return 'pendiente'
     }
@@ -330,8 +330,8 @@ export const Invitacion = () => {
                                 Su respuesta a la invitación es
                             </p>
 
-                            <p className={`estado-invitado ${estado(datos)}`} style={{ color: 'var(--text-lienzo-accent-2)' }} >
-                                {datos.estado}
+                            <p className={`estado-invitado ${datos.estado}`} style={{ color: 'var(--text-lienzo-accent-2)' }} >
+                                {estado(datos)}
                             </p>  
                         </div>
 
