@@ -19,14 +19,12 @@ export const FormAgregar = ({ alGuardar }) => {
           placeholder="Nombre completo"
           value={datos.nombre}
           onChange={(e) => setDatos({...datos, nombre: e.target.value})}
-          className="input-admin"
         />
         <input 
           type="number" 
           min="1"
           value={datos.reserva}
           onChange={(e) => setDatos({...datos, reserva: e.target.value})}
-          className="input-admin input-small"
         />
       </div>
       <button type="submit" className="btn-icon-save">

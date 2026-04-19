@@ -79,7 +79,7 @@ export const Administracion = () => {
     if (cargando) return <Loader />
 
     return (
-        <div className="admin-layout" style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <div className="admin-layout">
             <h1 className="titulo-admin" style={{ marginBottom: '2rem', textAlign: 'center' }}>
                 Panel de Gestion de Invitados
             </h1>
